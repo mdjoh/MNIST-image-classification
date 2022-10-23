@@ -7,8 +7,6 @@ Classify handwritten digits from the MNIST dataset
 from sklearn.datasets import fetch_openml
 from sklearn.model_selection import train_test_split
 
-import matplotlib
-matplotlib.use('agg')
 import matplotlib.pyplot as plt
 
 import tensorflow.keras as keras

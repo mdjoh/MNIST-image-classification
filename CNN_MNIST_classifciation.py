@@ -8,10 +8,6 @@ from sklearn.datasets import fetch_openml
 import numpy as np
 from sklearn.model_selection import train_test_split
 
-import matplotlib
-matplotlib.use('agg')
-import matplotlib.pyplot as plt
-
 import tensorflow.keras as keras
 
 # Data handling
