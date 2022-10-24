@@ -49,7 +49,7 @@ def split_data(cleaned_X, cleaned_Y):
 X_val, X_test, X_train, Y_val, Y_test, Y_train = split_data(cleaned_X, cleaned_Y)
 
 # Visualize data
-def visualize_data(X_train, n_samples):
+def visualize_data(X_train, Y_train, n_samples):
     X_train_sample = X_train.to_numpy()[:n_samples]
 
     Y_train_sample = Y_train[:n_samples]
@@ -65,7 +65,7 @@ def visualize_data(X_train, n_samples):
 
     plt.show()
 
-visualize_data(X_train, 10)
+visualize_data(X_train, Y_train, 10)
 
 # Build model with 2 hidden layers with ReLu activation function and 20% dropout rate
 # softmax activation function in the final layer
@@ -109,7 +109,7 @@ test_loss, test_accuracy = eval_model(model, X_test, Y_test)
 predictions = model.predict(X_test)
 
 # Visualize predictions
-def visualize_predictions(X_test, predictions, n_samples):
+def visualize_predictions(X_test, Y_test, predictions, n_samples):
     X_test_sample = X_test.to_numpy()[:n_samples]
 
     Y_test_sample = Y_test[:n_samples]
@@ -125,4 +125,4 @@ def visualize_predictions(X_test, predictions, n_samples):
 
     plt.show()
 
-visualize_predictions(X_test, predictions, 10)
+visualize_predictions(X_test, Y_test, predictions, 10)
