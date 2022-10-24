@@ -5,8 +5,9 @@ Classify handwritten digits from the MNIST dataset
 
 # Import modules
 from sklearn.datasets import fetch_openml
-import numpy as np
 from sklearn.model_selection import train_test_split
+
+import matplotlib.pyplot as plt
 
 import tensorflow.keras as keras
 
@@ -90,3 +91,20 @@ model = build_model()
 model = compile_model(model)
 model, history = train_model(model, X_train, Y_train, X_val, Y_val)
 test_loss, test_accuracy = eval_model(model, X_test, Y_test)
+predictions = model.predict(X_test)
+
+# Visualize predictions
+def visualize_predictions(X_test, Y_test, predictions, n_samples):
+
+    plt.figure(figsize=(10,10))
+
+    for i in range(n_samples):
+      plt.subplot(2, n_samples/2, i+1)
+      plt.xticks([])
+      plt.yticks([])
+      plt.imshow(X_test[i].reshape(28,28), cmap=plt.cm.binary)
+      plt.xlabel(f"Predicted Digit: {predictions[i].argmax()}\nActual Digit: {Y_test[i].argmax()}")
+
+    plt.show()
+
+visualize_predictions(X_test, Y_test, predictions, 10)
