@@ -56,12 +56,12 @@ def visualize_data(X_train, n_samples):
 
     plt.figure(figsize=(10,10))
 
-    for i in range(len(X_train_sample)):
+    for i in range(n_samples):
       plt.subplot(2, n_samples/2, i+1)
       plt.xticks([])
       plt.yticks([])
       plt.imshow(X_train_sample[i].reshape(28,28), cmap=plt.cm.binary)
-      plt.xlabel(f"Digit: {Y_train[i].argmax()}")
+      plt.xlabel(f"Digit: {Y_train_sample[i].argmax()}")
 
     plt.show()
 
